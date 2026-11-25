@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d27">
+<title>A Little Galaxy For Roghayeh 💎</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy: #080d27;
+  --blue: #8edaff;
+  --purple: #b9a2ff;
+  --white: #f5f4ff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Vazirmatn', sans-serif;
+  color: var(--white);
+  background:
+    radial-gradient(ellipse at 50% 10%, #343b78 0%, transparent 45%),
+    radial-gradient(ellipse at 10% 80%, #27215d 0%, transparent 40%),
+    linear-gradient(145deg, #080d27, #111334 55%, #090d27);
+  overflow-x: hidden;
+}
+
+button { font-family: inherit; cursor: pointer; }
+
+#stars {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 45px 15px;
+  position: relative;
+  z-index: 2;
+}
+
+.container { width: min(100%, 720px); }
+
+.glass {
+  width: 100%;
+  padding: 40px 25px;
+  text-align: center;
+  border: 1px solid rgba(202,220,255,.2);
+  border-radius: 30px;
+  background: rgba(255,255,255,.055);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 0 70px rgba(123,139,255,.12);
+  animation: fadeUp 1.2s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.eyebrow {
+  color: var(--blue);
+  letter-spacing: 4px;
+  font-size: 11px;
+  direction: ltr;
+}
+
+h1 {
+  font-size: clamp(35px,8vw,65px);
+  line-height: 1.5;
+  margin: 15px 0;
+  font-weight: 800;
+  background: linear-gradient(100deg,#fff,#9cddff,#c7adff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h2 { font-size: 26px; color: #c8c1ff; }
+
+p { line-height: 2.3; color: #d5d9f6; }
+
+.diamond {
+  font-size: 65px;
+  display: inline-block;
+  filter: drop-shadow(0 0 20px #9edfff);
+  animation: diamondFloat 3s ease-in-out infinite;
+}
+
+@keyframes diamondFloat {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+.primary {
+  color: #111631;
+  border: 0;
+  border-radius: 40px;
+  padding: 14px 30px;
+  background: linear-gradient(110deg,#a9e7ff,#c7b5ff);
+  font-size: 15px;
+  font-weight: 800;
+  box-shadow: 0 0 25px #9ecfff45;
+  transition: .3s;
+}
+
+.primary:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px #b9baff90;
+}
+
+.secondary {
+  background: transparent;
+  color: #c9caff;
+  border: 1px solid #9eafff66;
+  border-radius: 30px;
+  padding: 11px 22px;
+  margin-top: 12px;
+}
+
+.hidden { display: none !important; }
+
+.message-card {
+  margin: 20px 0;
+  padding: 24px;
+  border: 1px solid #a8caff35;
+  border-radius: 22px;
+  background: linear-gradient(135deg,#a9dfff0d,#c5a9ff12);
+  line-height: 2.4;
+}
+
+.small-label {
+  color: #a9dfff;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.memory {
+  min-height: 125px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #c6baff35;
+  border-radius: 18px;
+  padding: 15px;
+  background: #ffffff09;
+  transition: .3s;
+}
+
+.memory:hover {
+  transform: translateY(-5px);
+  background: #a9cfff18;
+}
+
+.memory span { font-size: 30px; }
+.memory p { font-size: 13px; margin: 8px 0 0; }
+
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #999cc9;
+  font-size: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.particle {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(500deg);
+    opacity: 0;
+  }
+}
+
+@media(max-width:480px) {
+  .glass { padding: 32px 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="stars"></canvas>
+
+<!-- صفحه اول -->
+<section class="screen" id="intro">
+  <div class="container">
+    <div class="glass">
+      <div class="diamond">💎</div>
+      <div class="eyebrow">A SPECIAL GIFT FOR YOU</div>
+
+      <h1>یک کهکشان<br>برای رقیه</h1>
+
+      <p>
+        بعضی آدم‌ها مثل ستاره‌ها هستن؛<br>
+        حتی از دور هم می‌تونن دنیاتو روشن کنن.
+      </p>
+
+      <button class="primary" onclick="openGift()">
+        باز کردن هدیه ✨
+      </button>
+
+      <p class="small-label">MADE WITH LOVE BY HESAN</p>
+    </div>
+  </div>
+</section>
+
+<!-- صفحه اصلی -->
+<section class="screen hidden" id="main">
+  <div class="container">
+    <div class="glass">
+
+      <div class="diamond">🌌</div>
+      <div class="eyebrow">TODAY IS YOUR DAY</div>
+
+      <h1>تولدت مبارک<br>رقیه جان</h1>
+
+      <p>
+        امروز ستاره‌ها به افتخار تو روشن‌ترن.
+        <br>
+        چون امروز روز به دنیا اومدن یکی از قشنگ‌ترین آدم‌های دنیاست.
+      </p>
+
+      <div class="message-card">
+        <div class="small-label">A LITTLE WISH FOR YOU</div>
+        <h2>برای تو، از ته قلبم 💜</h2>
+
+        امیدوارم سال جدید زندگیت پر باشه از
+        آرامش، لبخندهای واقعی، موفقیت‌های بزرگ
+        و اتفاق‌هایی که حتی فکرش رو هم نمی‌کردی.
+
+        امیدوارم هیچ‌وقت نور درونت کم نشه
+        و همیشه دلیلی برای خوشحال بودن داشته باشی.
+      </div>
+
+      <h2>چند تا آرزو برای تو ✨</h2>
+
+      <div class="gallery">
+        <div class="memory">
+          <span>🌙</span>
+          <p>آرامشی به وسعت آسمون</p>
+        </div>
+
+        <div class="memory">
+          <span>💎</span>
+          <p>درخششی مثل الماس</p>
+        </div>
+
+        <div class="memory">
+          <span>🦋</span>
+          <p>آزادی برای رسیدن به رویاها</p>
+        </div>
+
+        <div class="memory">
+          <span>💜</span>
+          <p>عشقی پر از حس خوب</p>
+        </div>
+      </div>
+
+      <button class="primary" onclick="revealFinal()">
+        یه پیام مخصوص دارم... 💌
+      </button>
+
+      <div id="gift" class="hidden">
+        <div class="message-card">
+          <div class="diamond">💌</div>
+          <h2>یه حرف از طرف حِسان</h2>
+
+          <p>
+            رقیه جان، شاید نتونم تمام قشنگی‌های دنیا رو بهت هدیه بدم،
+            ولی می‌تونم آرزو کنم که همیشه بهترین اتفاق‌ها سر راهت قرار بگیرن.
+
+            ممنون که هستی و دنیای اطرافیانت رو قشنگ‌تر می‌کنی.
+            امیدوارم این لبخند همیشه روی لبت بمونه.
+
+            <br><br>
+            تولدت مبارک، ستاره‌ی قشنگ! 💜
+            <br>
+            با عشق، حِسان
+          </p>
+        </div>
+
+        <div class="diamond">💎</div>
+        <p>YOU DESERVE THE WHOLE GALAXY.</p>
+      </div>
+
+      <button class="secondary" onclick="celebrate()">
+        بارش ستاره‌ها ⭐
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  A LITTLE GALAXY MADE JUST FOR ROGHAYEH 💜
+</footer>
+
+<script>
+// ستاره‌های پس‌زمینه
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+let stars = [];
+
+function resize() {
+  canvas.width = innerWidth * devicePixelRatio;
+  canvas.height = innerHeight * devicePixelRatio;
+
+  ctx.setTransform(
+    devicePixelRatio,0,0,devicePixelRatio,0,0
+  );
+
+  stars = Array.from({length:100},()=>({
+    x:Math.random()*innerWidth,
+    y:Math.random()*innerHeight,
+    r:Math.random()*1.8+.3,
+    a:Math.random(),
+    speed:Math.random()*.015+.003
+  }));
+}
+
+resize();
+addEventListener('resize',resize);
+
+function drawStars() {
+  ctx.clearRect(0,0,innerWidth,innerHeight);
+
+  stars.forEach(s=>{
+    s.a += s.speed;
+
+    const opacity = .3 + Math.abs(Math.sin(s.a))*.7;
+
+    ctx.beginPath();
+    ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle = `rgba(220,230,255,${opacity})`;
+    ctx.shadowBlur = 10;
+    ctx.shadowColor = '#9bdcff';
+    ctx.fill();
+  });
+
+  requestAnimationFrame(drawStars);
+}
+
+drawStars();
+
+// ورود به هدیه
+function openGift() {
+  document.getElementById('intro').classList.add('hidden');
+  document.getElementById('main').classList.remove('hidden');
+
+  window.scrollTo({top:0,behavior:'smooth'});
+  celebrate();
+}
+
+// پیام پایانی
+function revealFinal() {
+  const gift = document.getElementById('gift');
+
+  gift.classList.remove('hidden');
+
+  gift.scrollIntoView({
+    behavior:'smooth',
+    block:'center'
+  });
+
+  celebrate();
+}
+
+// بارشستاره و قلب
+function celebrate() {
+  const symbols = ['💜','✨','💎','⭐','🌙','🦋'];
+
+  for(let i=0;i<45;i++) {
+    const p = document.createElement('div');
+
+    p.className = 'particle';
+
+    p.textContent =
+      symbols[Math.floor(Math.random()*symbols.length)];
+
+    p.style.left = Math.random()*100+'vw';
+    p.style.top = '-30px';
+    p.style.fontSize = (15+Math.random()*20)+'px';
+
+    const duration = 3+Math.random()*4;
+
+    p.style.animationDuration = duration+'s';
+
+    document.body.appendChild(p);
+
+    setTimeout(()=>p.remove(),duration*1000);
+  }
+}
+</script>
+
+</body>
+</html>
